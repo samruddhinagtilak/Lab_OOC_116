@@ -1,36 +1,39 @@
 #include <iostream>
+#include <fstream>
 
 using namespace std;
 
-double division(int a, int b)
-{
-    if (b == 0)
-    {
-        throw "Division by zero condition!";
-    }
-
-    return (a / b);
-}
-
-
 int main()
 {
-    int x = 50;
-    int y = 0;
+    ofstream fout;
 
-    double z = 0;
+    string line;
 
-    try
+    fout.open("sample.txt");
+
+    while (fout)
     {
-        z = division(x, y);
+        getline(cin, line);
 
-        cout << z << endl;
+        if (line == "-1")
+            break;
+
+        fout << line << endl;
     }
 
-    catch (const char* msg)
+    fout.close();
+
+
+    ifstream fin;
+
+    fin.open("sample.txt");
+
+    while (getline(fin, line))
     {
-        cerr << msg << endl;
+        cout << line << endl;
     }
+
+    fin.close();
 
     return 0;
 }
