@@ -1,77 +1,41 @@
 
 #include <iostream>
-#include <string>
 using namespace std;
 
-class Employee
+class Calculator
 {
-private:
-    int empID;
-    string empName;
-    float basicSalary, HRA, DA, grossSalary;
-
 public:
-    // Parameterized Constructor
-    Employee(int id, string name, float salary)
+    // Add two integers
+    int add(int a, int b)
     {
-        empID = id;
-        empName = name;
-        basicSalary = salary;
-
-        HRA = basicSalary * 0.20;
-        DA = basicSalary * 0.10;
-        grossSalary = basicSalary + HRA + DA;
-
-        cout << "Employee object created!" << endl;
+        return a + b;
     }
 
-    // Calculate Gross Salary
-    void calculateSalary()
+    // Add three integers
+    int add(int a, int b, int c)
     {
-        grossSalary = basicSalary + HRA + DA;
+        return a + b + c;
     }
 
-    // Display Employee Details
-    void display()
+    // Add two floating-point numbers
+    float add(float a, float b)
     {
-        cout << "\n----- Employee Details -----" << endl;
-        cout << "Employee ID    : " << empID << endl;
-        cout << "Employee Name  : " << empName << endl;
-        cout << "Basic Salary   : Rs. " << basicSalary << endl;
-        cout << "HRA (20%)      : Rs. " << HRA << endl;
-        cout << "DA (10%)       : Rs. " << DA << endl;
-        cout << "Gross Salary   : Rs. " << grossSalary << endl;
-    }
-
-    // Destructor
-    ~Employee()
-    {
-        cout << "\nEmployee object destroyed!" << endl;
+        return a + b;
     }
 };
 
 int main()
 {
-    int id;
-    string name;
-    float salary;
+    Calculator c;
 
-    cout << "Enter Employee ID: ";
-    cin >> id;
+    cout << "Addition of two integers: "
+         << c.add(10, 20) << endl;
 
-    cin.ignore();
-    cout << "Enter Employee Name: ";
-    getline(cin, name);
+    cout << "Addition of three integers: "
+         << c.add(10, 20, 30) << endl;
 
-    cout << "Enter Basic Salary: Rs. ";
-    cin >> salary;
-
-    {
-        Employee e(id, name, salary);
-
-        e.calculateSalary();
-        e.display();
-    } // Object is destroyed here
+    cout << "Addition of two floating-point numbers: "
+         << c.add(5.5f, 4.5f) << endl;
 
     return 0;
 }
