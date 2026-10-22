@@ -2,77 +2,44 @@
 #include <iostream>
 using namespace std;
 
-class Box
+class Employee
 {
-private:
-    float length, breadth, height;
-
 public:
-    // Default Constructor
-    Box()
+    // Calculate salary using Basic Salary only
+    float calculateSalary(float basic)
     {
-        length = 1;
-        breadth = 1;
-        height = 1;
-        cout << "Default constructor called." << endl;
+        return basic;
     }
 
-    // Parameterized Constructor
-    Box(float l, float b, float h)
+    // Calculate salary using Basic Salary and HRA
+    float calculateSalary(float basic, float hra)
     {
-        length = l;
-        breadth = b;
-        height = h;
-        cout << "Parameterized constructor called." << endl;
+        return basic + hra;
     }
 
-    // Copy Constructor
-    Box(const Box &b)
+    // Calculate salary using Basic Salary, HRA and DA
+    float calculateSalary(float basic, float hra, float da)
     {
-        length = b.length;
-        breadth = b.breadth;
-        height = b.height;
-        cout << "Copy constructor called." << endl;
-    }
-
-    // Calculate Volume
-    float calculateVolume()
-    {
-        return length * breadth * height;
-    }
-
-    // Display Box Information
-    void display()
-    {
-        cout << "Length  : " << length << endl;
-        cout << "Breadth : " << breadth << endl;
-        cout << "Height  : " << height << endl;
-        cout << "Volume  : " << calculateVolume() << endl;
-    }
-
-    // Destructor
-    ~Box()
-    {
-        cout << "Destructor called. Box object destroyed."
-             << endl;
+        return basic + hra + da;
     }
 };
 
 int main()
 {
-    cout << "\n--- Default Constructor ---" << endl;
-    Box b1;
-    b1.display();
+    Employee e;
 
-    cout << "\n--- Parameterized Constructor ---" << endl;
-    Box b2(5, 4, 3);
-    b2.display();
+    float basic = 30000;
+    float hra = 5000;
+    float da = 3000;
 
-    cout << "\n--- Copy Constructor ---" << endl;
-    Box b3(b2);
-    b3.display();
+    cout << "Salary using Basic Salary only: Rs. "
+         << e.calculateSalary(basic) << endl;
 
-    cout << "\nEnd of program." << endl;
+    cout << "Salary using Basic Salary and HRA: Rs. "
+         << e.calculateSalary(basic, hra) << endl;
+
+    cout << "Salary using Basic Salary, HRA and DA: Rs. "
+         << e.calculateSalary(basic, hra, da) << endl;
 
     return 0;
 }
