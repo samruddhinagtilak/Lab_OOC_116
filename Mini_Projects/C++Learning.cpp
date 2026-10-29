@@ -1,7 +1,3 @@
-/*
-   Basic C++ Learning Platform
-*/
-
 #include <iostream>
 #include <string>
 using namespace std;
@@ -211,7 +207,7 @@ int main()
         cout << "The new class is called the derived class.\n";
 
         cout << R"(
------ COMPLETE CODE -----
+----- COMPLETE CODE -----+
 
 #include <iostream>
 #include <string>
@@ -403,161 +399,6 @@ int main()
 )";
         break;
 
-    case 9:
-        cout << "\n===== TEMPLATES =====\n";
-        cout << "Theory:\n";
-        cout << "Templates allow functions or classes to work with\n";
-        cout << "different data types without rewriting the code.\n";
-
-        cout << R"(
------ COMPLETE CODE -----
-
-#include <iostream>
-using namespace std;
-
-template <class T>
-T maximum(T a, T b)
-{
-    return (a > b) ? a : b;
-}
-
-int main()
-{
-    int a, b;
-
-    cout << "Enter two numbers: ";
-    cin >> a >> b;
-
-    cout << "Maximum = " << maximum(a, b) << endl;
-    return 0;
-}
-)";
-        break;
-
-    case 10:
-        cout << "\n===== DYNAMIC MEMORY ALLOCATION =====\n";
-        cout << "Theory:\n";
-        cout << "Dynamic memory is allocated during program execution.\n";
-        cout << "The new operator allocates memory.\n";
-        cout << "The delete operator releases allocated memory.\n";
-
-        cout << R"(
------ COMPLETE CODE -----
-
-#include <iostream>
-using namespace std;
-
-int main()
-{
-    int n;
-
-    cout << "Enter number of elements: ";
-    cin >> n;
-
-    if (n <= 0 || n > 1000)
-    {
-        cout << "Invalid size.\n";
-        return 0;
-    }
-
-    int *arr = new int[n];
-
-    cout << "Enter array elements:\n";
-
-    for (int i = 0; i < n; i++)
-        cin >> arr[i];
-
-    cout << "Array elements: ";
-
-    for (int i = 0; i < n; i++)
-        cout << arr[i] << " ";
-
-    cout << endl;
-
-    delete[] arr;
-    return 0;
-}
-)";
-        break;
-
-    case 11:
-        cout << "\n===== EXCEPTION HANDLING =====\n";
-        cout << "Theory:\n";
-        cout << "Exception handling manages runtime errors.\n";
-        cout << "try contains code that may cause an exception.\n";
-        cout << "throw raises an exception and catch handles it.\n";
-
-        cout << R"(
------ COMPLETE CODE -----
-
-#include <iostream>
-using namespace std;
-
-int main()
-{
-    int a, b;
-
-    cout << "Enter numerator and denominator: ";
-    cin >> a >> b;
-
-    try
-    {
-        if (b == 0)
-            throw b;
-
-        cout << "Result = " << (float)a / b << endl;
-    }
-    catch (int x)
-    {
-        cout << "Division by zero is not allowed.\n";
-    }
-
-    return 0;
-}
-)";
-        break;
-
-    case 12:
-        cout << "\n===== ARRAY SORTING =====\n";
-        cout << "Theory:\n";
-        cout << "Sorting arranges elements in a particular order.\n";
-        cout << "Bubble sort compares adjacent elements and swaps them\n";
-        cout << "when they are in the wrong order.\n";
-
-        cout << R"(
------ COMPLETE CODE -----
-
-#include <iostream>
-using namespace std;
-
-int main()
-{
-    int arr[5] = {40, 10, 30, 20, 50};
-    int temp;
-
-    for (int i = 0; i < 5; i++)
-    {
-        for (int j = 0; j < 4 - i; j++)
-        {
-            if (arr[j] > arr[j + 1])
-            {
-                temp = arr[j];
-                arr[j] = arr[j + 1];
-                arr[j + 1] = temp;
-            }
-        }
-    }
-
-    cout << "Sorted array: ";
-
-    for (int i = 0; i < 5; i++)
-        cout << arr[i] << " ";
-
-    cout << endl;
-    return 0;
-}
-)";
-        break;
 
     default:
         cout << "Invalid concept number.\n";
@@ -903,27 +744,6 @@ void oopMenu()
     } while (choice != 0);
 }
 
-// Advanced Concepts Menu
-void advancedMenu()
-{
-    int choice;
-
-    do
-    {
-        cout << "\n======= ADVANCED CONCEPTS =======\n";
-        cout << "1. Templates\n";
-        cout << "2. Dynamic Memory Allocation\n";
-        cout << "3. Exception Handling\n";
-        cout << "4. Array Sorting\n";
-        cout << "0. Back\n";
-        cout << "Enter choice: ";
-
-        choice = getChoice();
-
-        
-
-    } while (choice != 0);
-}
 
 // Main Function
 int main()
